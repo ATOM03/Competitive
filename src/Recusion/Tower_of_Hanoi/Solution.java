@@ -6,16 +6,19 @@ public class Solution {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
         int N=sc.nextInt();
-        TowerOfHanoi(N,'A','C','B');
+        System.out.println(TowerOfHanoi(N,"T1","T2","T3"));
     }
 
-    private static void TowerOfHanoi(int n, char from, char to, char Aux) {
+    private static int  TowerOfHanoi(int n, String from, String to, String Aux) {
         if(n==1){
-            System.out.println("Move "+ n +" from "+from+" to "+to);
-            return;
+            System.out.println("Move "+ n +"th from "+from+" to "+to);
+            return 1;
         }
-        TowerOfHanoi(n-1,from,Aux,to);
-        System.out.println("Move "+ n +" from "+from+" to "+to);
-        TowerOfHanoi(n-1,Aux,to,from);
+        int count=0;
+        count+=TowerOfHanoi(n-1,from,Aux,to);
+        System.out.println("Move "+ n +"th from "+from+" to "+to);
+        count+=TowerOfHanoi(n-1,Aux,to,from);
+
+        return count;
     }
 }
