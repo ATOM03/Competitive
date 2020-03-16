@@ -6,14 +6,35 @@ import java.util.Scanner;
 public class Stack_Class {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
-        Stack s=new Stack();
-        s.push(1);
-        s.push(2);
-        s.push(3);
-        s.push(4);
-        s.pop();
-        s.print();
-        System.out.println(s.top());
+        int tc=sc.nextInt();
+        while(tc-->0) {
+            Stack s = new Stack();
+            int Q=sc.nextInt();
+            while(Q-->0){
+                int a=sc.nextInt();
+                switch (a){
+                    case 1:
+                        int b=sc.nextInt();
+                        s.push(b);
+                        break;
+                    case 2:
+                        System.out.print(s.pop()+" ");
+                        break;
+                    default:
+                        System.out.println("Entered Wrong Input!!!");
+                        break;
+                }
+            }
+            System.out.println();
+        }
+
+//        s.push(1);
+//        s.push(2);
+//        s.push(3);
+//        s.push(4);
+//        s.pop();
+//        s.print();
+//        System.out.println(s.top());
 
     }
     public static class Stack{
@@ -25,10 +46,15 @@ public class Stack_Class {
             size++;
         }
         public int pop(){
-            int temp=stack.get(size);
-            stack.remove(size);
-            size--;
-            return temp;
+
+            if(size==-1){
+                return -1;
+            }else {
+                int temp = stack.get(size);
+                stack.remove(size);
+                size--;
+                return temp;
+            }
         }
         public int top(){
             return stack.get(size);
