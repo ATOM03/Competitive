@@ -55,4 +55,32 @@ public class BST {
         display(node.left);
         display(node.right);
     }
+    public void min_value(){
+        min_value(this.root);
+    }
+
+    private void min_value(Node node) {
+        if(node.left==null){
+            System.out.println(node.data);
+            return;
+        }
+        min_value(node.left);
+    }
+    public int lca(int n1,int n2){
+        Node node=lca(this.root,n1,n2);
+        return node.data;
+    }
+
+    private Node lca(Node node, int n1, int n2) {
+        if(node==null){
+            return null;
+        }
+        if(node.data>n1 && node.data>n2){
+            return lca(node.left,n1,n2);
+        }
+        if(node.data<n1 && node.data<n2){
+            return lca(node.right,n1,n2);
+        }
+        return node;
+    }
 }

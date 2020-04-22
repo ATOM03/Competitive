@@ -4,6 +4,7 @@ public class LL {
     private Node head;
     private Node tail;
     private int size=0;
+    private int carry=0;
 
     public void addFirst(int data){
         Node node=new Node(data);
@@ -39,6 +40,55 @@ public class LL {
             head=head.next;
         }
     }
+    public void append(){
+        Node oddStart=null;
+        Node oddTail=null;
+        Node evenStart=null;
+        Node evenTail=null;
+        Node curr=this.head;
+        while(curr!=null){
+            if(curr.data%2!=0){
+                if(oddStart==null){
+                    oddStart=curr;
+                    oddTail=curr;
+                }else{
+                    oddTail.next=curr;
+                    oddTail=curr;
+                }
+            }
+            else{
+                if(evenStart==null){
+                    evenStart=curr;
+                    evenTail=curr;
+                }else{
+                    evenTail.next=curr;
+                    evenTail=curr;
+                }
+            }
+            curr=curr.next;
+        }
+        oddTail.next=evenStart;
+        this.head=oddStart;
+    }
+    public void sum(LL list1,LL list2){
+       Node temp1=list1.head;
+       Node temp2=list2.head;
+       sum(temp1,temp2);
+       if(this.carry!=0) {
+           addFirst(carry);
+       }
+    }
+
+    private void sum(Node head1, Node head2) {
+        if(head1==null)
+            return;
+        sum(head1.next,head2.next);
+        int sum=head1.data+head2.data+carry;
+        carry=sum/10;
+        sum=sum%10;
+        addFirst(sum);
+    }
+
     public void display(){
         Node temp=head;
         while(temp!=null){
