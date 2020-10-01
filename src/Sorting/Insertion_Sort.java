@@ -23,7 +23,7 @@ public class Insertion_Sort {
         for (int i=1;i<N;i++){
             int key=ar[i];
             int j=i-1;
-            //create a sorted array
+            //create a sorted array from the unsorted array
             while(j>=0 && ar[j]>key){
                 ar[j+1]=ar[j];
                 j=j-1;
