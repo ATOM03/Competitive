@@ -20,4 +20,14 @@ public class Fib {
         }
         return ar[ar.length-1];
     }
+    public int rodcutten(int ar[]){
+         ar[0]=0;
+        ar[1]=1;
+
+        for (int i = 2; i <ar.length ; i++) {
+            ar[i]=ar[i-1]+ar[i-2];
+        }
+        return ar[ar.length-1];
+    }
+        
 }
