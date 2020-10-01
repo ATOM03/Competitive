@@ -20,4 +20,14 @@ public class Reverse_Array {
             i++;
         }
     }
+    private static int removeduplicate(int ar[]){
+        int N=ar.length;
+        Arrays.sort(ar);;
+        int j=0;
+        for(int i=0;i<N-1;i++){
+            if(ar[i]!=ar[i+1])
+                ar[j++]=ar[i];
+        }
+        ar[j++]=ar[n-1];
+        return j;
 }
