@@ -88,6 +88,15 @@ public class LL {
         sum=sum%10;
         addFirst(sum);
     }
+    public int middle(){
+        Node slow=this.head;
+        Node fast=this.head;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return slow.data;
+    }
 
     public void display(){
         Node temp=head;
