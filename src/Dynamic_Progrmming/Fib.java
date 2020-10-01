@@ -20,6 +20,7 @@ public class Fib {
         }
         return ar[ar.length-1];
     }
+    //added a method rod cutton
     public int rodcutten(int ar[]){
          ar[0]=0;
         ar[1]=1;
